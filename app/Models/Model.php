@@ -96,7 +96,7 @@ class Model
     return $this->query->fetch_all(MYSQLI_ASSOC);
   }
  /**
-   * TODO: Metodo para seleccionar los camplos a mostrar en el select
+   * TODO: Metodo para seleccionar los camplos a mostrar en el select.
    * @param array $columns
    * @return object Model   
    */
