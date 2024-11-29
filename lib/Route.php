@@ -17,6 +17,17 @@ class Route {
     self::$routes['POST'][$uri] = $callback;
   }
 
+  public static function resource($name,$class){
+
+    self::get("/{$name}",[$class,"index"]);
+    self::get("/{$name}/create",[$class,"create"]);
+    self::post("/{$name}",[$class,"store"]);
+    self::get("/{$name}/:id",[$class,"show"]);
+    self::get("/{$name}/:id/edit",[$class,"edit"]);
+    self::post("/{$name}/:id",[$class,"update"]);
+    self::post("/{$name}/:id/delete",[$class,"destroy"]);
+  }
+
   public static function  dispatch(){
 
     $uri = trim($_SERVER['REQUEST_URI'], "/");

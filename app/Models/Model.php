@@ -80,11 +80,13 @@ class Model
 
   public function first(){
 
+    $this->limit = " LIMIT 1 "; 
+
     if (empty($this->query)){
       $this->query($this->generateSelect(), $this->data, $this->params);
     }    
 
-    return $this->query->fetch_assoc();
+    return $this->query->fetch_all(MYSQLI_ASSOC);
   }
 
   public function get(){

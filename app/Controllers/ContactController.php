@@ -22,7 +22,7 @@ class ContactController extends Controller
                       ->where('name','LIKE','%d%') 
                       ->where('id','<','5')
                       ->order_by('name','DESC')
-                      ->first();
+                      ->all();
 
     if(isset($_GET['search'])){
       $contacts = $this->model->where('name','LIKE','%'.$_GET['search'].'%') 
